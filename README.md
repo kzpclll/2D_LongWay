@@ -12,9 +12,7 @@
 
 ### 2.设计思路
 
-此处描述游戏整体的关卡设计思路，美术设计思路。
-
-<img src="C:\Users\wqing19026\Desktop\新建文件夹 (2)\策划案\LongWay.png" alt="LongWay" style="zoom:80%;" />
+此处描述游戏整体的关卡设计思路，美术设计思路。<img src="README.assets/LongWay-1698226970816.png" alt="LongWay" style="zoom:80%;" />
 
 ### 3.功能实现
 
@@ -24,17 +22,17 @@
 
 但不管怎样，在阅读了部分的celeste关于移动的代码以后，结合GMTK|Why Does Celeste Feel So Good to Play? 里面提到的一种相对慢加速，但停止快速的移动曲线，我也自定义了一套优化移动手感的方法。
 
-<img src="C:\Users\wqing19026\AppData\Roaming\Typora\typora-user-images\image-20231025163823741.png" alt="image-20231025163823741" style="zoom:60%;" />
+<img src="README.assets/image-20231025163823741.png" alt="image-20231025163823741" style="zoom:50%;" />
 
 首先public角色的最大速度，并通过readonly的加速时间与减速时间计算出为了达到指定的最大速度，应该用多大的加速度进行加速。计算得到加速时的加速度、减速时的加速度、定义空气阻力之后，通过下面这个式子来实现一种类似上图的稍慢加速，稍快停止的方法。我这里用的线性插值，而不是曲线。(PlayerKid.cs)
 
-<img src="C:\Users\wqing19026\AppData\Roaming\Typora\typora-user-images\image-20231025164956053.png" alt="image-20231025164956053" style="zoom:80%;" />
+<img src="README.assets/image-20231025164956053.png" alt="image-20231025164956053" style="zoom:80%;" />
 
 以及土狼时间(PlayerController.cs)：
 
-![image-20231025165924202](C:\Users\wqing19026\AppData\Roaming\Typora\typora-user-images\image-20231025165924202.png)
+![image-20231025165924202](README.assets/image-20231025165924202.png)
 
-![image-20231025170753791](C:\Users\wqing19026\AppData\Roaming\Typora\typora-user-images\image-20231025170753791.png)
+![image-20231025170753791](README.assets/image-20231025170753791.png)
 
 这些工作可能很不明显，但是确实存在的。不如说，我写这份文档的目的就是让这些工作看起来更像一回事。
 
@@ -60,7 +58,7 @@
 
 鱼手：写了一个Bezier曲线来根据输入的坐标点确定路径，并使用扩展编辑器在界面中画出，从而供关卡策划来自定义怪物的路径。通过一个Trigger来触发这个曲线。
 
-<img src="C:\Users\wqing19026\AppData\Roaming\Typora\typora-user-images\image-20231025172758023.png" alt="image-20231025172758023" style="zoom:80%;" />
+<img src="README.assets/image-20231025172758023.png" alt="image-20231025172758023" style="zoom:80%;" />
 
 各类类似的移动物体同上。
 
