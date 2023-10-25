@@ -19,9 +19,9 @@ public class PlayerKid : PlayerBase
     public float spd;
 
     //[Header("控制参数")]
-    private float accTime = 0.65f;
-    private float decTime = 0.3f;
-    private float airMult = 0.65f;
+    private readonly float accTime = 0.65f;
+    private readonly float decTime = 0.3f;
+    private readonly float airMult = 0.65f;
 
     //[Header("计算参数")]
     private float accPerTime;

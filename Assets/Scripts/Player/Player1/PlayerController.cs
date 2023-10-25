@@ -19,7 +19,9 @@ public class PlayerController : PlayerBase
     [Header("移动参数")]
     public float speed;
     public float acc;
+    public float accStop;
     public float accSpace;
+    public float accSpaceStop;
 
     // 跳跃参数
     [Header("跳跃参数")]
@@ -164,7 +166,6 @@ public class PlayerController : PlayerBase
 
         //根据方向键和加速度acc对角色x轴速度进行控制
         //分为空中加速度和地面加速度两种，前者相对小，后者很大，所以必须保证后者只在地面上时能被应用
-
         Vector2 tempV = rb.velocity;
 
         if (isNearGround)
@@ -232,14 +233,22 @@ public class PlayerController : PlayerBase
         if (playerState == 1)
         {
             Debug.Log("jump called in state 1: normal jump");
-            if (isNearGround || restGraceFrame > 0)
+            bool isJump = false;
+
+            if (isNearGround)
             {
-                if( !isNearGround && restGraceFrame > 0)
-                {
-                    Debug.Log("Grace Jump!");
-                }
+                isJump = true;
+            }else if(!isNearGround && restGraceFrame > 0)
+            {
+                Debug.Log("Grace Jump!");
+                isJump = true;
+            }
+
+            if (isJump)
+            {
                 Jump();
             }
+
         }
         else if (playerState == 2)
         {
