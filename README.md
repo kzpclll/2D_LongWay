@@ -8,7 +8,7 @@
 
 对内容感兴趣可以看看游玩演示视频：
 
-游戏演示视频地址：
+游戏演示视频地址：https://www.bilibili.com/video/BV1Ej411i7jM/
 
 ### 2.设计思路
 
